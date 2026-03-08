@@ -1,8 +1,8 @@
 I Followed the stated steps to execute the code:
 1. python -m venv venv ( create virtual environment)
 2. .\venv\Scripts\activate (activating venv)
-3. pip install -r requirements.txt (install dependencies as in the .txt file)
-4. uvicorn main:app --host 0.0.0.0 --port 8000
+3. pip install --upgrade -r requirements.txt (install dependencies as in the .txt file)
+4. uvicorn maint:app --host 0.0.0.0 --port 8000
 5. http://127.0.0.1:8000/docs (visit to test endpoints)
 
 Embedding & Data Setup :
@@ -19,4 +19,5 @@ The Tunable Decision: The similarity threshold is set to 0.88.
 Observation: A higher threshold ensures high precision (only near-identical queries hit the cache). A lower threshold would increase the hit rate but risks returning semantically "loose" matches.
 
 FastAPI State Management
+
 The Vector Store, GMM model, and Cache are initialized as global states. This ensures the models are loaded once into memory, allowing the service to handle incoming requests with sub-second latency.
