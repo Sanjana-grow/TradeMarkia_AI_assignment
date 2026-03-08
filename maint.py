@@ -13,7 +13,7 @@ class VectorEngine:
         self.documents = []
 
     def prepare_data(self):
-        # Filtering headers/footers to reduce noise as requested
+        # Filtering headers/footers to reduce noise
         newsgroups = fetch_20newsgroups(subset='all', remove=('headers', 'footers', 'quotes'))
         self.documents = [doc for doc in newsgroups.data if len(doc.strip()) > 50]
         return self.documents
@@ -146,4 +146,5 @@ async def flush_cache():
     return {"message": "Cache flushed and stats reset."}
 
 if __name__ == "__main__":
+
     uvicorn.run(app, host="127.0.0.1", port=8000)
